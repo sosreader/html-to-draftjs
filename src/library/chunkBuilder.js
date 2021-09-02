@@ -71,15 +71,15 @@ export const getBlockDividerChunk = (blockType: string, depth: number, data: Obj
   };
 };
 
-export const getAtomicBlockChunk = (entityId: number): Object => {
+export const getAtomicBlockChunk = (entityId: number, type: ?string, data: ?Object): Object => {
   return {
     text: '\r ',
     inlines: [new OrderedSet()],
     entities: [entityId],
     blocks: [{
-      type: 'atomic',
+      type: type || 'atomic',
       depth: 0,
-      data: new Map({})
+      data: data && Object.keys(data) ? new Map(data) : new Map({})
     }],
   };
 };
