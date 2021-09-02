@@ -42,7 +42,7 @@ function genFragment(
         value.mutability,
         value.data || {},
       );
-      return { chunk: getAtomicBlockChunk(entityId) };
+      return { chunk: getAtomicBlockChunk(entityId, value.type, value.data) };
     }
   }
 
